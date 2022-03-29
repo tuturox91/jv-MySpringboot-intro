@@ -31,14 +31,14 @@ public class HelloControllerTest {
   private int port;
 
   @Test
-  public void controller_hasOneMethod() {
+  public void controller_HasOneMethod_Ok() {
     int actual = HelloController.class.getDeclaredMethods().length;
     assertEquals(1, actual,
         "HelloController should have only one method");
   }
 
   @Test
-  public void method_isSignatureValid() {
+  public void method_SignatureValid_Ok() {
     Method method = HelloController.class.getDeclaredMethods()[0];
     assertTrue(Modifier.isPublic(method.getModifiers()),
         "Method should be public");
@@ -51,7 +51,7 @@ public class HelloControllerTest {
   }
 
   @Test
-  public void controller_hasHelloEndpointWithValidResponse() throws Exception {
+  public void controller_HasHelloEndpointWithValidResponse_Ok() throws Exception {
     MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(ENDPOINT))
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn();
@@ -60,7 +60,7 @@ public class HelloControllerTest {
   }
 
   @Test
-  public void port_isValid() {
+  public void port_IsValid_Ok() {
     assertEquals(EXPECTED_PORT, port);
   }
 }
